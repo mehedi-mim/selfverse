@@ -1,0 +1,32 @@
+version: '3.7'
+services:
+  postgres:
+    image: postgres:12.3-alpine
+    restart: always
+    volumes:
+      - torxebec_data: /var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: "torxebc"
+      POSTGRES_PASSWORD: "123456"
+    ports:
+      - 5435:5435
+    networks:
+      - torxebec_network
+
+  backend:
+   build:
+    context: backend
+    dockerfile: Dockerfile
+   command: python app/main.py
+   tty: true
+   volums: 
+    - ./backend:/app/:cached
+    - ./.docker/.ipython:/root/.ipython:cached
+   environment:
+      PYTHONPATH: .
+   depends_on:
+      - postgres
+   networks:
+      - torxebec_network
+   env_file:
+      - .env
