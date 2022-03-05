@@ -1,3 +1,5 @@
 .env
 security.py
+.idea
+__pycache__
 

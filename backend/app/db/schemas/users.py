@@ -1,7 +1,5 @@
-import enum
 from pydantic import BaseModel
 from typing import Optional, Text
-from .common import ExtendedEnum
 
 
 class UserBase(BaseModel):

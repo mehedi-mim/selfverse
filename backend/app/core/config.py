@@ -1,6 +1,6 @@
 import os
 
-PROJECT_NAME = "ITS FullStack"
+PROJECT_NAME = "Torxebec"
 
 SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL")
 
