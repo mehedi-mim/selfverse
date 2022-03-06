@@ -5,18 +5,9 @@ from app.db.crud import create_user
 from app.db.schemas import UserCreate
 from app.db.session import SessionLocal
 
-def init() -> None:
-    db = SessionLocal()
 
-    create_user(
-        db,
-        UserCreate(
-            email='',
-            password='',
-            is_active=True,
-            is_superuser=True,
-        ),
-    )
+def init() -> None:
+    pass
 
 
 if __name__ == "__main__":
