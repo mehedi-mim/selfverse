@@ -27,6 +27,8 @@ services:
       PYTHONPATH: .
     depends_on:
       - postgres
+    ports:
+      - 8000:8000
     networks:
       - torxebec_network
     env_file:
